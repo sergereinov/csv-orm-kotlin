@@ -61,3 +61,16 @@ Peter;1;Jascriptson
 John;2;Gola
 James;3;Javac
 ```
+
+## Installation
+
+Download the latest release files. Place .jar file(s) in the `<project>/app/libs` folder (in case of Android project).
+Add dependencies to the `build.gradle` script of your app module.
+```gradle
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'], excludes: ['*-sources.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.5.31"
+    ...
+}
+```
+Run gradle sync. Done.
