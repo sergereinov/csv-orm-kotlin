@@ -1,0 +1,32 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.31'
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+group = 'com.github.sergereinov'
+version = '1.0'
+
+tasks.named('jar') {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                'Implementation-Version': project.version)
+    }
+}
+
+java {
+    withSourcesJar()
+}
+
+dependencies {
+    implementation platform('org.jetbrains.kotlin:kotlin-bom')
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
+
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.5.31'
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
+}
