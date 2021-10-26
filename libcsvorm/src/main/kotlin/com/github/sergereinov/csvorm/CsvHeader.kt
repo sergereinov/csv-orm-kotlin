@@ -87,7 +87,12 @@ class CsvHeader<T>(
     }
 
     private fun makeColumn(clazz: KClass<*>, value: String): Any? = when(clazz) {
+        Byte::class -> value.toByteOrNull()
+        Short::class -> value.toShortOrNull()
         Int::class -> value.toIntOrNull()
+        Long::class -> value.toLongOrNull()
+        Float::class -> value.toFloatOrNull()
+        Double::class -> value.toDoubleOrNull()
         String::class -> value
         else -> null
     }
